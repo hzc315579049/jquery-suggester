@@ -1,0 +1,21 @@
+.autofill{
+	position: absolute;
+}
+ul.autofill-list{
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	list-style: none;
+}
+li.autofill-item{
+	line-height: 20px;
+	padding: 10px 5px;
+	background-color: #fff;
+}
+li.autofill-item:hover{
+	background-color: #f1f1f1;
+}
+li.autofill-item:active{
+	background-color: #e2e2e2;
+}

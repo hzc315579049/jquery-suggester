@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="src/autofill.css"/>
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body{
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="test"/>
+		<!--<div class="autofill">
+			<ul class="autofill-list" style="min-width: 178px;">
+				<li class="autofill-item">123</li>
+				<li class="autofill-item">123</li>
+				<li class="autofill-item">123</li>
+				<li class="autofill-item">123</li>
+			</ul>
+		</div>-->
+		<script src="src/autofill.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#test").autofill({
+				url: "https://easy-mock.com/mock/5aa5dc25d7d6cd06886ec219/zzb/autofill",
+				extendParams: function(obj){
+					return {
+						words: obj.value
+					}
+				},
+				responseHandler: function(data){
+					data = data.data;
+					data = data.map(function(v){
+						return {
+							value: v.code,
+							label: v.type+v.name,
+						}
+					});
+					return data;
+				}
+			});
+		</script>
+	</body>
+</html>
